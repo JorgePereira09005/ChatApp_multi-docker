@@ -1,0 +1,52 @@
+version: "3"
+services:
+    mysql:
+        image: "mysql:latest"
+        environment:
+            - MYSQL_ROOT_PASSWORD=root
+            - MYSQL_DATABASE=chat-app
+            - MYSQL_USER=hbstudent
+            - MYSQL_PASSWORD=hbstudent
+        ports:
+            - 3306:3306
+        restart: always
+        volumes:
+            - db-data:/var/lib/mysql
+            - ./mysql-init-files:/docker-entrypoint-initdb.d
+        networks:
+            - backend_net
+    backend:
+        build:
+            dockerfile: Dockerfile
+            context: ./backend
+        ports:
+            - 8080:8080
+        restart: always
+        depends_on: 
+            - mysql
+        environment:
+            SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/chat-app?useSSL=false&useUnicode=yes&characterEncoding=UTF-8&allowPublicKeyRetrieval=true&serverTimezone=UTC
+            SPRING_DATASOURCE_USERNAME: hbstudent
+            SPRING_DATASOURCE_PASSWORD: hbstudent
+        networks:
+            - backend_net
+            - frontend_net
+    frontend:
+        build:
+            dockerfile: Dockerfile
+            context: ./frontend
+        ports:
+            - 4200:3000
+        restart: always
+        depends_on: 
+            - backend
+        networks:
+            - frontend_net
+
+volumes:
+    db-data:
+
+networks:
+    backend_net:
+    frontend_net:
+    

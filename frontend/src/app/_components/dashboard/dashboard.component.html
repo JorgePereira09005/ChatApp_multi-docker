@@ -1,0 +1,227 @@
+<style>
+  #banner-wrapper {
+    padding: 0 15px 0 15px;
+  }
+
+  #banner {
+    position: relative;
+    padding: 2.5em;
+  }
+
+  #banner h2 {
+    font-size: 3.5em;
+    margin: 0.1em 0 0.35em 0;
+  }
+
+  #banner p {
+    font-size: 1.0em;
+    line-height: 1.35em;
+    margin: 0;
+  }
+
+  #banner .button {
+    width: 100%;
+    margin-bottom: 0.5em;
+  }
+
+  #banner .button.icon:before {
+    position: absolute;
+    right: 0.25em;
+    top: 50%;
+    margin-top: -0.5em;
+  }
+
+  #banner .button.alt {
+    margin-bottom: 0;
+  }
+
+  #banner ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0 0 0 2em;
+  }
+
+  #banner ul li {
+    padding-left: 0;
+  }
+
+  p.wrap {
+    width: 400px;
+    word-break: break-all;
+    white-space: normal;
+  }
+
+  h4.wrap {
+    width: 400px;
+    word-break: break-all;
+    white-space: normal;
+  }
+</style>
+
+
+<div id="banner-wrapper">
+
+  <div id="banner" class="box container">
+
+    <div class="row">
+
+      <div class="col-7 col-12-medium">
+        <h3>{{this.user.username}}</h3>
+        <p>{{this.user.description}}</p>
+
+        <div class="alert alert-primary" role="alert" style="scale: 90%;" *ngIf="this.pendingRequests.length != 0">
+          <b>You have pending friend requests!</b>
+        </div>
+
+        <div id="friendAcceptedAlert" class="alert alert-primary" role="alert" style="scale: 80%; display: none;">
+          <b>Friend request accepted!</b>
+        </div>
+
+        <div id="friendDeclinedAlert" class="alert alert-danger" role="alert" style="scale: 80%; display: none;">
+          <b>Friend request declined!</b>
+        </div>
+
+      </div>
+
+      <div class="col-5 col-12-medium">
+        <ul>
+          <li><img src={{this.user.profilePic}} class="img-fluid " style="width: 256px;"></li>
+
+          <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownFriendRequests"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Requests
+            </button>
+
+            <div class="dropdown-menu" aria-labelledby="dropdownFriendRequests">
+
+              <ng-container *ngFor="let request of this.pendingRequests">
+
+                  <div class="row">
+                    <p class="dropdown-item">From: {{request.requester.username}}</p>
+                  </div>
+
+                  <div class="row">
+                    <a class="col-md" (click)="acceptFriendRequest(request)" style="cursor:pointer"><b>Accept</b></a>
+                    <a class="col-md" (click)="declineFriendRequest(request)" style="cursor:pointer"><b>Decline</b></a>
+
+                </div>
+
+              </ng-container>
+
+              <ng-container *ngFor="let request of this.requestsSent">
+                <p class="text-primary">-Awaiting response from {{request.requested_to.username}}</p>
+              </ng-container>
+
+            </div>
+          </div>
+
+          <div class="dropdown">
+            <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownFriends" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              Friends
+            </button>
+
+            <div class="dropdown-menu" aria-labelledby="dropdownFriends">
+              <div *ngFor="let friend of this.friends">
+                <!-- TODO: CLICKING FRIEND's NAME SHOULD TAKE US TO THAT USER'S PAGE
+                     TODO: CREATE BUTTON TO START CHATTING IN REAL TIME -->
+                <a class="dropdown-item" href="#">{{friend.username}}</a>
+              </div>
+            </div>
+
+          </div>
+
+          <button type="button" onclick="toggleNewPostBox()" class="btn btn-secondary">New post</button>
+
+        </ul>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<br>
+
+<!-- <app-chat [friendsList]="this.friends"></app-chat> -->
+
+<article id="work">
+
+  <div class="container ">
+
+    <div class="row ">
+      <div class="col-md-4 justify-content-center" style="display: none;" id="newPost">
+        <textarea #newPost placeholder="Post something!"></textarea>
+
+        <div class="row ">
+          <div class="col-md justify-content-center">
+            <a style="cursor:pointer" (click)="createNewPost(newPost)">
+              <b>Submit post</b>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <br>
+
+
+    <div *ngFor="let post of this.posts">
+
+      <div class="media ">
+
+        <img src={{user.profilePic}} class="" style="width: 100px;" class="mr-3" alt="...">
+
+        <div class="media-body ">
+
+          <h4 class="mt-0 wrap"><b> {{post.id}} - Posted on {{post.datePost}}</b></h4>
+          <p class="wrap">{{post.content}}</p>
+
+          <button (click)="showReplyBox(post.id)" class="btn btn-secondary btn-sm">
+            Reply
+          </button>
+
+          <div *ngIf="postsShowing.has(post.id)">
+
+            <textarea #reply placeholder="Type a response!"></textarea>
+
+            <a style="cursor:pointer" (click)="sendReply(reply, post.id)">
+              <b>Send reply</b>
+            </a>
+
+          </div>
+
+          <!-- <input type="button" name="answer" value="Show Div" onclick="showDiv()" /> -->
+
+          <div *ngFor="let child of post.childrenPosts">
+            <div class="media mt-3">
+
+              <!-- <a class="mr-3" href="#">
+              <img src="..." class="mr-3" alt="...">
+            </a> -->
+
+              <img src={{child.postedBy.profilePic}} class="img-fluid" style="width: 100px;" class="mr-3" alt="...">
+
+              <div class="media-body">
+                <h4 class="mt-0 wrap">{{child.id}} - Posted on {{child.datePost}} by {{child.postedBy.username}}</h4>
+                <p class="wrap">{{child.content}}</p>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <br>
+
+  </div>
+
+</article>

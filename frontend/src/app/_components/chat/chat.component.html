@@ -1,0 +1,49 @@
+<style>
+    span.wrap {
+        width: 400px;
+        word-break: break-all;
+        white-space: normal;
+    }
+
+    p.wrap {
+        width: 400px;
+        word-break: break-all;
+        white-space: normal;
+    }
+</style>
+
+<div class="card sticky-top" style="padding-top: 25px;">
+
+    <h3 class="text-center">Global Chat</h3>
+
+    <div class="container justify-content-center ">
+        <div class="row text-center">
+
+            <div class="col ">
+                <p>Type your message and press Enter to send it to all users! </p>
+
+                <input style="width: 100%;" #myMessage type="text" placeholder="Message"
+                    (keyup.enter)="sendMessageUsingSocket(myMessage)">
+
+                <br>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <ul>
+                <li *ngFor="let message of messages">
+                    <div *ngIf="message.fromId == this.from; else elseBlock">
+                        <span class="wrap" style="background-color: lightcyan;"><b>{{message.fromId}}:</b> {{message.message}}</span>
+                    </div>
+                    <ng-template #elseBlock>
+                        <span class="wrap"><b >{{message.fromId}}:</b> {{message.message}}</span>
+                    </ng-template>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

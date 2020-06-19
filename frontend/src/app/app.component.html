@@ -1,0 +1,86 @@
+<style type="text/css">
+  .row2 {
+    display: flex;
+    align-items: center;
+
+  }
+</style>
+
+<!-- Nav -->
+<nav id="nav">
+
+  <ul class="container">
+
+    <div *ngIf="isLoggedIn; else elseBlock">
+      <li>
+        <a routerLink="/dashboard"><i>ChatApp - {{this.username}}</i></a>
+
+      </li>
+
+      <li><a routerLink="/chat">Chat</a></li>
+      <li><a [routerLink]="" fragment="search">Search user</a></li>
+
+      <li>
+        <a style="color:burlywood" href class="nav-link" (click)="logout()">Logout</a>
+      </li>
+
+    </div>
+
+    <ng-template #elseBlock>
+      <div>
+        <li>
+          <a routerLink="/"><i>ChatApp </i></a>
+        </li>
+        <li>
+          <a routerLink="/signin"><i>Signin </i></a>
+        </li>
+        <li><a [routerLink]="" fragment="search">Search user</a></li>
+      </div>
+    </ng-template>
+
+  </ul>
+
+</nav>
+
+<router-outlet></router-outlet>
+
+<!-- <article id="contact" class="wrapper style4">
+  <div class="container medium "> -->
+
+<article id="contact" class="wrapper style4">
+  <div class="container medium" id="search" >
+
+    <header >
+      <h2>Search for a user</h2>
+    </header>
+
+    <div class="row">
+      <div class="col-12">
+
+        <div class="form-header">
+          <input #myInput type="text" placeholder="Search for user..." 
+          class="au-input au-input-xl" (keyup.enter)="searchForUser(myInput.value)"/>
+          <button class="au btn-primary btn-sm" (click)="searchForUser(myInput.value)">
+            Search
+          </button>
+        </div>
+
+        <hr />
+        <h3>Check my Github portfolio!</h3>
+        <ul class="social">
+          <li><a href="https://github.com/JorgePereira09005" class="icon brands fa-github"><span
+                class="label">Github</span></a></li>
+        </ul>
+        <hr />
+      </div>
+    </div>
+
+    <footer>
+      <ul id="copyright">
+        <li>&copy; Miniport. All rights reserved.</li>
+        <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+      </ul>
+    </footer>
+
+  </div>
+</article>

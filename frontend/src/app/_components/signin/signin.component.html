@@ -1,0 +1,46 @@
+<div class="container text-center">
+
+    <br>
+
+    <h2>Login</h2>
+
+    <div class="row justify-content-center">
+
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+            <div class="form-group ">
+                <label for="username">Username</label>
+                <input type="text" formControlName="username" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && getForm.username.errors }" />
+                <div *ngIf="submitted && getForm.username.errors" class="invalid-feedback">
+                    <div *ngIf="getForm.username.errors.required">Username is required</div>
+                </div>
+            </div>
+            <div class="form-group ">
+                <label for="password">Password</label>
+                <input type="password" formControlName="password" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && getForm.password.errors }" />
+                <div *ngIf="submitted && getForm.password.errors" class="invalid-feedback">
+                    <div *ngIf="getForm.password.errors.required">Password is required</div>
+                </div>
+            </div>
+            <div class="form-group ">
+                <button [disabled]="loading" class="btn btn-primary">
+                    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                    Login
+                </button>
+                <a routerLink="/signup" class="btn btn-link">Register</a>
+            </div>
+
+            <div class="form-group ">
+                <div class="alert alert-danger" role="alert" *ngIf="this.submitted && isLoginFailed">
+                    Login failed: {{ errorMessage }}
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+</div>
+
+<br>

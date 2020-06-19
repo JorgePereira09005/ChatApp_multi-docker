@@ -1,0 +1,179 @@
+<style>
+    #banner-wrapper {
+        padding: 0 15px 0 15px;
+    }
+
+    #banner {
+        position: relative;
+        padding: 2.5em;
+    }
+
+    #banner h2 {
+        font-size: 3.5em;
+        margin: 0.1em 0 0.35em 0;
+    }
+
+    #banner p {
+        font-size: 1.0em;
+        line-height: 1.35em;
+        margin: 0;
+    }
+
+    #banner .button {
+        width: 100%;
+        margin-bottom: 0.5em;
+    }
+
+    #banner .button.icon:before {
+        position: absolute;
+        right: 0.25em;
+        top: 50%;
+        margin-top: -0.5em;
+    }
+
+    #banner .button.alt {
+        margin-bottom: 0;
+    }
+
+    #banner ul {
+        list-style: none;
+        padding-left: 0;
+        margin: 0 0 0 2em;
+    }
+
+    #banner ul li {
+        padding-left: 0;
+    }
+
+    p.wrap {
+        width: 400px;
+        word-break: break-all;
+        white-space: normal;
+    }
+
+    h4.wrap {
+        width: 400px;
+        word-break: break-all;
+        white-space: normal;
+    }
+
+    .center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+    }
+</style>
+
+<div *ngIf="this.user; else elseBlock">
+
+    <div id="banner-wrapper">
+
+        <div id="banner" class="box container">
+
+            <div class="row">
+
+                <div class="col-7 col-12-medium">
+                    <h3>{{this.user.username}}</h3>
+                    <p>{{this.user.description}}</p>
+
+                    <div id="friendRequestSent" class="alert alert-primary" role="alert"
+                        style="scale: 80%; display: none;">
+
+                    </div>
+
+                </div>
+
+                <div class="col-5 col-12-medium">
+                    <ul>
+                        <li><img src={{this.user.profilePic}} class="img-fluid " style="width: 256px;"></li>
+
+                        <div *ngIf="this.loggedInUser">
+                            <button class="btn btn-primary" (click)="sendFriendRequest()" type="button">
+                                Send request!
+                            </button>
+                        </div>
+
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <br>
+
+    <article id="work">
+
+        <div class="container ">
+
+            <br>
+
+            <div *ngFor="let post of this.posts">
+
+                <div class="media ">
+
+                    <img src={{user.profilePic}} class="" style="width: 100px;" class="mr-3" alt="...">
+
+                    <div class="media-body ">
+
+                        <h4 class="mt-0 wrap"><b> {{post.id}} - Posted on {{post.datePost}}</b></h4>
+                        <p class="wrap">{{post.content}}</p>
+
+                        <div *ngIf="this.loggedInUser">
+                            <button (click)="showReplyBox(post.id)" class="btn btn-secondary btn-sm">
+                                Reply
+                            </button>
+                        </div>
+
+                        <div *ngIf="postsShowing.has(post.id)">
+
+                            <textarea #reply placeholder="Type a response!"></textarea>
+
+                            <a style="cursor:pointer" (click)="sendReply(reply, post.id)">
+                                <b>Send reply</b>
+                            </a>
+
+                        </div>
+
+                        <!-- <input type="button" name="answer" value="Show Div" onclick="showDiv()" /> -->
+
+                        <div *ngFor="let child of post.childrenPosts">
+                            <div class="media mt-3">
+
+                                <img src={{child.postedBy.profilePic}} class="img-fluid" style="width: 100px;"
+                                    class="mr-3" alt="...">
+
+                                <div class="media-body">
+                                    <h4 class="mt-0 wrap">{{child.id}} - Posted on {{child.datePost}} by
+                                        {{child.postedBy.username}}</h4>
+                                    <p class="wrap">{{child.content}}</p>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <br>
+
+        </div>
+
+    </article>
+
+</div>
+
+<ng-template #elseBlock>
+    <br>
+    <h3 class="text-center"><b>User not found. Did you get the name right ?</b></h3>
+    <br>
+    <img class="center" src="https://i.pinimg.com/originals/7e/b5/09/7eb5096687bea7e80a99fb4d54f39eea.gif">
+    <br>
+</ng-template>
