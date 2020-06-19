@@ -1,0 +1,21 @@
+language: generic
+sudo: required
+services:
+    - docker
+
+before_install:
+    - docker build -t jpmc9005/angular-test -f ./frontend/Dockerfile.dev ./frontend
+
+script:
+    - docker run jpmc9005/angular-test npm test -- --coverage
+
+after_sucess:
+    - docker build -t jpmc9005/frontend ./frontend
+    - docker build -t jpmc9005/backend ./backend
+
+    # log in to the docker cli
+    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+
+    # push the images to docker hub
+    - docker push jpmc9005/frontend
+    - docker push jpmc9005/backend
