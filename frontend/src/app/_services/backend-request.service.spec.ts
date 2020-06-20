@@ -7,7 +7,6 @@ describe('BackendRequestService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ BackendRequestService ],
       imports: [HttpClientModule]
     });
     service = TestBed.inject(BackendRequestService);

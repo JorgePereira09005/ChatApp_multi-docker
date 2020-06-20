@@ -7,7 +7,6 @@ describe('AuthenticationService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ AuthenticationService ],
       imports: [HttpClientModule]
     });
     service = TestBed.inject(AuthenticationService);

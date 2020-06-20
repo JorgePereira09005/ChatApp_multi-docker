@@ -8,7 +8,6 @@ describe('SocketService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ SocketService ],
       imports: [HttpClientModule]
     });
     service = TestBed.inject(SocketService);

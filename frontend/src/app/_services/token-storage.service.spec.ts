@@ -8,7 +8,6 @@ describe('TokenStorageService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ TokenStorageService ],
       imports: [HttpClientModule]
     });
     service = TestBed.inject(TokenStorageService);

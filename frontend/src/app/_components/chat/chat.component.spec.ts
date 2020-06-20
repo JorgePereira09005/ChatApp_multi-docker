@@ -10,7 +10,7 @@ describe('ChatComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ ChatComponent ],
-      imports: [HttpClientModule, ToastrService]
+      imports: [HttpClientModule]
     })
     .compileComponents();
   }));
