@@ -9,7 +9,7 @@ before_install:
 script:
     - docker run -e CI=true jpmc9005/angular-test npm test
 
-after_sucess:
+after_success:
     - docker build -t jpmc9005/frontend ./frontend
     - docker build -t jpmc9005/backend ./backend
 
