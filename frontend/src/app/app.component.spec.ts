@@ -61,6 +61,7 @@ describe('AppComponent', () => {
 }); */
 
 it('renders without crashing', () => {
+  
+});
 
 });
-}
