@@ -1,12 +1,15 @@
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import {HttpClientModule} from '@angular/common/http';
 import { AppComponent } from './app.component';
 
-/* describe('AppComponent', () => {
+describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        RouterTestingModule,
+        HttpClientTestingModule
       ],
       declarations: [
         AppComponent
@@ -32,8 +35,8 @@ import { AppComponent } from './app.component';
     const compiled = fixture.nativeElement;
     expect(compiled.querySelector('.content span').textContent).toContain('ChatApp app is running!');
   });
-}); */
-
-it('renders without crashing', () => {
-
 });
+
+/* it('renders without crashing', () => {
+
+}); */
