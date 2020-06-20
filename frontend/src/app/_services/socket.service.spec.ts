@@ -1,4 +1,5 @@
 import { TestBed } from '@angular/core/testing';
+import { HttpClientModule  } from '@angular/common/http';
 
 import { SocketService } from './socket.service';
 

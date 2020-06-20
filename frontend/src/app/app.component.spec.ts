@@ -26,13 +26,7 @@ describe('AppComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
-        HttpClientTestingModule,
-        BrowserModule,
-        AppRoutingModule,
-        ToastrModule.forRoot({ timeOut: 3000 }),
-        ReactiveFormsModule,
-        HttpClientModule,
-        BrowserAnimationsModule
+        HttpClientModule
       ],
       declarations: [
         AppComponent
@@ -61,7 +55,7 @@ describe('AppComponent', () => {
 }); */
 
 it('renders without crashing', () => {
-  
+
 });
 
 });
