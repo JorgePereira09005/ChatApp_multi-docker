@@ -3,7 +3,8 @@ import { HttpClientModule  } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SigninComponent } from './signin.component';
-import { ActivatedRoute } from '@angular/router';
+/* import { ActivatedRoute } from '@angular/router'; */
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('SigninComponent', () => {
   let component: SigninComponent;
@@ -12,8 +13,8 @@ describe('SigninComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ SigninComponent ],
-      imports: [HttpClientModule, FormsModule, ReactiveFormsModule],
-      providers: [ActivatedRoute]
+      imports: [HttpClientModule, FormsModule, ReactiveFormsModule, RouterTestingModule]
+
     })
     .compileComponents();
   }));
