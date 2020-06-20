@@ -12,7 +12,8 @@ describe('SigninComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ SigninComponent ],
-      imports: [HttpClientModule, ActivatedRoute, FormsModule, ReactiveFormsModule]
+      imports: [HttpClientModule, FormsModule, ReactiveFormsModule],
+      providers: [ActivatedRoute]
     })
     .compileComponents();
   }));
