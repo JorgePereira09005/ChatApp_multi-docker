@@ -8,6 +8,7 @@ describe('DashboardComponent', () => {
   let fixture: ComponentFixture<DashboardComponent>;
 
   beforeEach(async(() => {
+
     TestBed.configureTestingModule({
       declarations: [ DashboardComponent ],
       imports: [HttpClientModule]
@@ -15,7 +16,7 @@ describe('DashboardComponent', () => {
     .compileComponents();
   }));
 
-  beforeEach(() => {
+  /* beforeEach(() => {
     fixture = TestBed.createComponent(DashboardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -23,5 +24,6 @@ describe('DashboardComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
-  });
+  }); */
+
 });

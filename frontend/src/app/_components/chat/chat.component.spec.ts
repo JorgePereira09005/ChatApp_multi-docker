@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientModule  } from '@angular/common/http';
 import { ChatComponent } from './chat.component';
+import { ToastrService } from 'ngx-toastr';
 
 describe('ChatComponent', () => {
   let component: ChatComponent;
@@ -9,7 +10,7 @@ describe('ChatComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ ChatComponent ],
-      imports: [HttpClientModule]
+      imports: [HttpClientModule, ToastrService]
     })
     .compileComponents();
   }));
