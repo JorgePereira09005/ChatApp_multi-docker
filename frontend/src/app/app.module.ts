@@ -35,7 +35,7 @@ import { ChatComponent } from './_components/chat/chat.component';
     HttpClientModule,
     BrowserAnimationsModule
   ],
-  providers: [authInterceptorProviders, SocketService],
+  providers: [HttpClientModule, authInterceptorProviders, SocketService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

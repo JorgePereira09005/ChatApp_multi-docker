@@ -1,7 +1,7 @@
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClient, HttpErrorResponse  } from '@angular/common/http';
 import { AppComponent } from './app.component';
 
 import { BrowserModule } from '@angular/platform-browser';
@@ -35,13 +35,7 @@ describe('AppComponent', () => {
         BrowserAnimationsModule
       ],
       declarations: [
-        AppComponent,
-        HomeComponent,
-        SignupComponent,
-        SigninComponent,
-        DashboardComponent,
-        UserComponent,
-        ChatComponent
+        AppComponent
       ],
     }).compileComponents();
   }));
@@ -63,9 +57,9 @@ describe('AppComponent', () => {
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
     expect(compiled.querySelector('.content span').textContent).toContain('ChatApp app is running!');
-  }); */
-});
-
-/* it('renders without crashing', () => {
-
+  });
 }); */
+
+it('renders without crashing', () => {
+
+});
