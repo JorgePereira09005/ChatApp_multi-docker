@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import {FormsModule } from '@angular/forms';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './_components/home/home.component';
@@ -33,7 +35,8 @@ import { ChatComponent } from './_components/chat/chat.component';
     ToastrModule.forRoot({ timeOut: 3000 }),
     ReactiveFormsModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule
   ],
   providers: [HttpClientModule, authInterceptorProviders, SocketService],
   bootstrap: [AppComponent]
