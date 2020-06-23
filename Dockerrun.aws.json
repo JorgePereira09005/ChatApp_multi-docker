@@ -28,9 +28,6 @@
                     "containerPort": 8080
                 }
             ],
-            "links": [
-                "frontend"
-            ],
             "memory": 128
         }
 
