@@ -1,0 +1,32 @@
+{
+    "AWSEBDockerrunVersion": 2,
+    "containerDefinitions": [
+        {
+            "name": "frontend",
+            "image": "jpmc9005/frontend",
+            "hostname": "frontend",
+            "essential": false,
+            "portMappings": [
+                {
+                    "hostPort": 4200,
+                    "containerPort": 3000
+                }
+            ],
+            "links": [
+                "backend"
+            ],
+            "memory": 128
+        },
+        {
+            "name": "backend",
+            "image": "jpmc9005/backend",
+            "hostname": "backend",
+            "essential": false,
+            "links": [
+                "frontend"
+            ],
+            "memory": 128
+        }
+
+    ]
+}

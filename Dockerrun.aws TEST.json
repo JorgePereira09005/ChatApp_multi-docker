@@ -1,0 +1,65 @@
+{
+    "AWSEBDockerrunVersion": 2,
+    "volumes": [
+        {
+            "name": "mysql-volume",
+            "host": {
+                "sourcePath": "/var/app/current/mysql-db"
+            }
+        }
+    ],
+
+    "containerDefinitions": [
+        {
+            "name": "frontend",
+            "image": "jpmc9005/frontend",
+            "hostname": "frontend",
+            "essential": false,
+            "portMappings": [
+                {
+                    "hostPort": 4200,
+                    "containerPort": 3000
+                }
+            ],
+            "links": [
+                "backend"
+            ],
+            "memory": 128
+        },
+        {
+            "name": "backend",
+            "image": "jpmc9005/backend",
+            "hostname": "backend",
+            "essential": false,
+            "links": [
+                "frontend",
+                "mysql"
+            ],
+            "memory": 128
+        },
+
+        {
+            "name": "mysql",
+            "image": "jpmc9005/mysql",
+            "hostname": "mysql",
+            "essential": false,
+            "links": [
+                "backend"
+            ],
+            "memory": 256,
+            "portMappings": [
+                {
+                    "hostPort": 3306,
+                    "containerPort": 3306
+                }
+            ],
+            "mountPoints": [
+                {
+                  "sourceVolume": "mysql-volume",
+                  "containerPath": "/var/lib/mysql"
+                }
+              ]
+        }
+        
+    ]
+}

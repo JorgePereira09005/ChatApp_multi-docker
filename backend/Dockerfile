@@ -1,5 +1,6 @@
 FROM openjdk:13-alpine
 RUN addgroup -S spring && adduser -S spring -G spring
+EXPOSE 8080
 USER spring:spring
 ARG JAR_FILE=target/*.jar
 COPY ${JAR_FILE} app.jar
