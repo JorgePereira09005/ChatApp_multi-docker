@@ -22,6 +22,12 @@
             "image": "jpmc9005/backend",
             "hostname": "backend",
             "essential": false,
+            "portMappings": [
+                {
+                    "hostPort": 8080,
+                    "containerPort": 8080
+                }
+            ],
             "links": [
                 "frontend"
             ],

@@ -54,3 +54,8 @@ networks:
     backend_net:
     frontend_net:
     
+
+
+##username: hbstudent
+##password: hbstudent
+##databasename: chatapp

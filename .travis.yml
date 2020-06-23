@@ -18,3 +18,16 @@ after_success:
     # push the images to docker hub
     - docker push jpmc9005/frontend
     - docker push jpmc9005/backend
+
+deploy:
+    edge: true
+    provider: elasticbeanstalk
+    region: eu-west-3 
+    app: ChatApp_multi-docker
+    env: ChatappMultiDocker-env
+    bucket_name: elasticbeanstalk-eu-west-3-709982155892
+    bucket_path: chatapp-multi
+    on:
+        branch: master
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
