@@ -5,7 +5,7 @@
             "name": "frontend",
             "image": "jpmc9005/frontend",
             "hostname": "frontend",
-            "essential": false,
+            "essential": true,
             "portMappings": [
                 {
                     "hostPort": 4200,
@@ -21,7 +21,7 @@
             "name": "backend",
             "image": "jpmc9005/backend",
             "hostname": "backend",
-            "essential": false,
+            "essential": true,
             "portMappings": [
                 {
                     "hostPort": 8080,
