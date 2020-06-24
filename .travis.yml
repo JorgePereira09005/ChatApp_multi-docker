@@ -11,6 +11,7 @@ services:
 after_success:
     - docker build -t jpmc9005/frontend ./frontend
     - docker build -t jpmc9005/backend ./backend
+    - docker build -t jpmc9005/nginx ./nginx
 
     # log in to the docker cli
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
@@ -18,6 +19,7 @@ after_success:
     # push the images to docker hub
     - docker push jpmc9005/frontend
     - docker push jpmc9005/backend
+    - docker push jpmc9005/nginx
 
 deploy:
     edge: true

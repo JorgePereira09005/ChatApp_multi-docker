@@ -1,5 +1,12 @@
 version: "3"
 services:
+    nginx:
+        restart: always
+        build:
+            dockerfile: Dockerfile.dev
+            context: ./nginx
+        ports:
+            - '3050:80'
     mysql:
         image: "mysql:latest"
         environment:
@@ -19,8 +26,6 @@ services:
         build:
             dockerfile: Dockerfile
             context: ./backend
-        ports:
-            - 8080:8080
         restart: always
         depends_on: 
             - mysql
@@ -39,8 +44,6 @@ services:
         volumes:
             - /app/node_modules
             - ./frontend:/app
-        ports:
-            - 4200:3000
         restart: always
         depends_on: 
             - backend

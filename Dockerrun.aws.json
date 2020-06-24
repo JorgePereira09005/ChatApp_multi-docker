@@ -5,29 +5,28 @@
             "name": "frontend",
             "image": "jpmc9005/frontend",
             "hostname": "frontend",
-            "essential": true,
-            "portMappings": [
-                {
-                    "hostPort": 4200,
-                    "containerPort": 3000
-                }
-            ],
-            "links": [
-                "backend"
-            ],
+            "essential": false,
             "memory": 128
         },
         {
             "name": "backend",
             "image": "jpmc9005/backend",
             "hostname": "backend",
+            "essential": false,
+            "memory": 128
+        },
+        {
+            "name": "nginx",
+            "image": "jpmc9005/nginx",
+            "hostname": "nginx",
             "essential": true,
             "portMappings": [
                 {
-                    "hostPort": 8080,
-                    "containerPort": 8080
+                    "hostPort": 80,
+                    "containerPort": 80
                 }
             ],
+            "links": ["frontend", "backend"],
             "memory": 128
         }
 
