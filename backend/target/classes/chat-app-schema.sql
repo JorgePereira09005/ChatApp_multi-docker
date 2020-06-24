@@ -1,16 +1,16 @@
 -- -----------------------------------------------------
 -- Schema ChatApp
 -- -----------------------------------------------------
-DROP SCHEMA IF EXISTS `chat-app`;
+DROP SCHEMA IF EXISTS `chatapp`;
 
-CREATE SCHEMA `chat-app`;
-USE `chat-app` ;
+CREATE SCHEMA `chatapp`;
+USE `chatapp` ;
 
 
 -- -----------------------------------------------------
--- Table `chat-app`.`user`
+-- Table `chatapp`.`user`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `chat-app`.`user` (
+CREATE TABLE IF NOT EXISTS `chatapp`.`user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_name` VARCHAR(50) NOT NULL unique,
   `email` VARCHAR(50) NOT NULL unique,
@@ -43,9 +43,9 @@ INSERT INTO user(user_name, email, profile_pic_url , password, first_name, last_
 
 
 -- -----------------------------------------------------
--- Table `chat-app`.`friend_request`
+-- Table `chatapp`.`friend_request`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `chat-app`.`friend_request` (
+CREATE TABLE IF NOT EXISTS `chatapp`.`friend_request` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `date` DATETIME,
   `is_accepted` bool,
@@ -67,7 +67,7 @@ INSERT INTO friend_request(date, is_accepted, requester_id, requested_to_id)
 	VALUES('2018-09-01 15:11:56', true, 2, 3);
 
 
-CREATE TABLE IF NOT EXISTS `chat-app`.`post` (
+CREATE TABLE IF NOT EXISTS `chatapp`.`post` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `date_post` DATETIME,
   `content` VARCHAR(512) NULL DEFAULT NULL,
@@ -98,7 +98,7 @@ INSERT INTO post(date_post, content, poster_id, parent_post_id)
 INSERT INTO post(date_post, content, poster_id, parent_post_id) 
 	VALUES('2019-03-01 11:11:56', 'testesttest test test test ', 2 ,  null);
 
-CREATE TABLE `chat-app`.`roles` (
+CREATE TABLE `chatapp`.`roles` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(45),
   
@@ -114,7 +114,7 @@ INSERT INTO roles(name) VALUES('ROLE_MODERATOR');
 INSERT INTO roles(name) VALUES('ROLE_ADMIN');
 
 
-CREATE TABLE `chat-app`.`user_roles` (
+CREATE TABLE `chatapp`.`user_roles` (
   `user_id` int(11) NOT NULL,
   `role_id` int(11) NOT NULL,
   
