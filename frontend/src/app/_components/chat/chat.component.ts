@@ -19,7 +19,7 @@ export class ChatComponent implements OnInit {
 
   /* @Input() friendsList = new Set<User>(); */
 
-  serverUrl = "http://localhost:5000/" + "socket";
+  serverUrl = "http://chatappmultidocker-env.eba-kntfadpm.eu-west-3.elasticbeanstalk.com/" + "socket";
   isLoaded: boolean = false;
   isCustomSocketOpened = false;
   stompClient;
