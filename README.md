@@ -21,3 +21,13 @@ The database password and username (shown in the Spring Boot properties file) we
 
 ![aws_user_dashboard](https://user-images.githubusercontent.com/61985975/85608849-63b89680-b64d-11ea-9504-ca34f7aa7ef4.jpg)
 
+## Elastic Beanstalk console
+
+![aws_ebs_console](https://user-images.githubusercontent.com/61985975/85608994-877bdc80-b64d-11ea-954a-10321059c7ce.jpg)
+
+
+## RDS console
+
+![aws_rds](https://user-images.githubusercontent.com/61985975/85609066-9c587000-b64d-11ea-9852-6ea2bf457683.jpg)
+
+
