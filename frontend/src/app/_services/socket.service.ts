@@ -12,7 +12,7 @@ import { Message } from 'src/app/_entities/message';
 })
 export class SocketService {
 
-  url: string = "http://localhost:8080/" + "api/socket";
+  url: string = "http://chatappmultidocker-env.eba-kntfadpm.eu-west-3.elasticbeanstalk.com/" + "api/socket";
 
   constructor(private http: HttpClient) { }
 

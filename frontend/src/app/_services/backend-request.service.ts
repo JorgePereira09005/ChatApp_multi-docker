@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { FriendRequest } from '../_entities/friend-request';
 import { User } from '../_entities/user';
 
-const API_URL = 'http://localhost:8080/api/';
+const API_URL = 'http://chatappmultidocker-env.eba-kntfadpm.eu-west-3.elasticbeanstalk.com/api/';
 
 @Injectable({
   providedIn: 'root'
