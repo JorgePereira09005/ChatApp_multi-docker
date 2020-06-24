@@ -19,7 +19,7 @@ export class ChatComponent implements OnInit {
 
   /* @Input() friendsList = new Set<User>(); */
 
-  serverUrl = "http://localhost:8080/" + "socket";
+  serverUrl = "http://localhost:5000/" + "socket";
   isLoaded: boolean = false;
   isCustomSocketOpened = false;
   stompClient;
