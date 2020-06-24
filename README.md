@@ -25,7 +25,16 @@ The database password and username (shown in the Spring Boot properties file) we
 
 ![aws_home_page](https://user-images.githubusercontent.com/61985975/85608773-4e436c80-b64d-11ea-942c-00ccd83631eb.jpg)
 
-## User Dashboard
+
+## Creating new user
+
+![new_user_creation](https://user-images.githubusercontent.com/61985975/85610770-366ce800-b64f-11ea-9742-f32eb8266a26.jpg)
+
+
+## User Dashboard (different users)
+
+
+![Login_new_user](https://user-images.githubusercontent.com/61985975/85610862-4d133f00-b64f-11ea-933b-51c6f854b9d9.jpg)
 
 ![aws_user_dashboard](https://user-images.githubusercontent.com/61985975/85608849-63b89680-b64d-11ea-9504-ca34f7aa7ef4.jpg)
 
