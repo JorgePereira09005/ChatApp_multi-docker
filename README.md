@@ -1,6 +1,6 @@
 # ChatApp_multi-docker
 
-  This project is a continuation of the previous ChatApp website. It consists of the construction of a continuous integration/continuous deployment pipeline using GitHub, Docker, Travis CI and finally AWS Elastic Beanstalk. The MySQL database is provided by Amazon RDS, and is connected to the other parts of the program by placing it in the same Virtual Private Network as the other components.
+  This project is a continuation of the previous ChatApp work. It consists of the construction of a continuous integration/continuous deployment pipeline using GitHub, Docker, Travis CI and finally AWS Elastic Beanstalk. The MySQL database is provided by Amazon RDS, and is connected to the other parts of the program by placing it in the same Virtual Private Network as the other components.
   
   Contained in the files are a .travis.yml that defines the Travis CI workflow, as well as a Dockerrun.aws.json which will define the deployment of built Docker images to AWS.
 
