@@ -18,7 +18,7 @@ The database password and username (shown in the Spring Boot properties file) we
 
 ## Travis CI
 
-[image](https://user-images.githubusercontent.com/61985975/85609346-e2153880-b64d-11ea-92f1-4ea5b1213b15.png)
+![image](https://user-images.githubusercontent.com/61985975/85609346-e2153880-b64d-11ea-92f1-4ea5b1213b15.png)
 
 
 ## Home page
