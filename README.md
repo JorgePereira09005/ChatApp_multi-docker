@@ -12,7 +12,7 @@ The flow is the following:
 
 Please note that the some variables are hardcoded:
 - In the frontend, the URLs used to make HTTP requests to the backend are fixed and reflect the URL that AWS attributed to the Multi-Docker instance that was generated at the time this project was conceived;
-- In the backend, the datasource URL reflects the endpoint name created by RDS at the time the MySQL database was created. The script used to initialize the database schema is provided with the project files and was ran but using MySQL Workbench to remotely connect to the RDS MySQL instance. 
+- In the backend, the datasource URL reflects the endpoint name created by RDS at the time the MySQL database was created. The script used to initialize the database schema is provided with the project files and was ran by using MySQL Workbench to remotely connect to the RDS MySQL instance. 
 The database password and username (shown in the Spring Boot properties file) were also unique to this project and are hardcoded. Any future use of these files will require manually changing these hardcoded values or assigning environment variables. These values must match the ones supplied when creating a new instance of MySQL using RDS.
 
 In addition, please note that the Spring Boot project must be built before it can be copied into a Docker container.
