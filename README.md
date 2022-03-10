@@ -47,6 +47,6 @@ In addition, please note that the Spring Boot project must be built before it ca
 
 ## RDS console
 
-![aws_rds](https://user-images.githubusercontent.com/61985975/85609066-9c587000-b64d-11ea-9852-6ea2bf457683.jpg)
+![aws_rds](https://user-images.githubusercontent.com/61985975/157690309-130c036d-1fe8-445f-977c-eff2770c4dce.png)
 
 
