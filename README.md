@@ -42,7 +42,7 @@ In addition, please note that the Spring Boot project must be built before it ca
 
 ## Elastic Beanstalk console
 
-![aws_ebs_console](https://user-images.githubusercontent.com/61985975/85608994-877bdc80-b64d-11ea-954a-10321059c7ce.jpg)
+![aws_ebs_console](https://user-images.githubusercontent.com/61985975/157689696-0746cfd0-bdc0-4b32-8b96-992b579eb418.png)
 
 
 ## RDS console
